@@ -34,10 +34,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* Header and navigation */
 .site-header { position: fixed; z-index: 100; inset: 0 0 auto; height: 82px; border-bottom: 1px solid transparent; transition: background .25s ease, border-color .25s ease; }
 .site-header.is-scrolled { background: rgb(9 11 10 / 92%); border-color: rgb(255 255 255 / 8%); backdrop-filter: blur(14px); }
-.header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.header-inner { height: 100%; display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; direction: ltr; }
 .brand { width: 144px; min-height: 40px; display: flex; align-items: center; flex: 0 0 auto; }
 .brand img { width: 100%; max-height: 46px; object-fit: contain; object-position: left center; }
-.site-nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 34px); }
+.site-nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 34px); direction: rtl; }
 .nav-link { position: relative; padding-block: 8px; color: #d1d4ce; font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; transition: color .2s ease; }
 .nav-link::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: var(--lime); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease-out); }
 .nav-link:hover, .nav-link.is-active { color: var(--white); }
