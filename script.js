@@ -81,7 +81,7 @@ const progressObserver = new IntersectionObserver((entries, observer) => {
 
 progressObserver.observe(progressPanel);
 
-document.querySelector("#year").textContent = new Date().getFullYear().toLocaleString("ar-EG");
+document.querySelector("#year").textContent = new Date().getFullYear().toLocaleString("EG");
 
 // إخفاء موضع الشعار عند غياب الملف دون استبداله بشعار آخر.
 document.querySelectorAll(".brand img").forEach((image) => {
