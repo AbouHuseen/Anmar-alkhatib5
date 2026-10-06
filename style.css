@@ -221,12 +221,8 @@ a {
   padding-top: 148px;
   padding-bottom: 30px;
   overflow: hidden;
-  background: radial-gradient(
-    ellipse at 80% 18%,
-    #1a2019 0,
-    #10130f 34%,
-    var(--ink) 73%
-  );
+
+ 
 }
 .hero::before {
   position: absolute;
@@ -246,7 +242,15 @@ a {
   grid-template-columns: 0.84fr 1.16fr;
   align-items: center;
   gap: clamp(30px, 7vw, 104px);
+  padding: clamp(18px, 2.3vw, 28px) clamp(18px, 2.5vw, 32px);
+  border: 1px solid rgb(255 255 255 / 5%);
+  background-origin: content-box;
+  background:
+    linear-gradient(100deg, rgba(9, 11, 10, 0) 0%, rgba(9, 11, 10, 0) 34%, rgb(9 11 10 / 20%) 100%),
+    url("./img/anmar.jpeg") center center / contain no-repeat;
+  box-shadow: inset 0 0 0 1px rgb(197 250 68 / 3%);
 }
+
 .hero-copy {
   position: relative;
   z-index: 2;
@@ -331,30 +335,23 @@ p {
   min-height: 490px;
   align-self: stretch;
   overflow: visible;
-  animation: rise-in 0.9s 0.12s var(--ease-out) both;
+  animation: rise-in 0.9s 0.12s var() both;
 }
 .hero-photo {
   position: absolute;
-  inset: 0 0 22px;
-  width: 100%;
-  height: calc(100% - 22px);
+  inset: 16px 18px 22px;
+  width: calc(100% - 36px);
+  height: calc(100% - 38px);
   border-radius: 2px;
-  object-fit: cover;
-  object-position: center 42%;
+  object-fit: contain;
+  object-position: center center;
+  background: #0f120f;
   filter: saturate(0.72) brightness(0.76);
 }
 .hero-photo-shade {
-
-  inset: 0 0 22px;
-  background:
-    linear-gradient(
-      90deg,
-      #10130f 0%,
-      rgb(16 19 15 / 40%) 26%,
-      transparent 62%
-    ),
-    linear-gradient(0deg, #10130f 1%, transparent 55%),
-    linear-gradient(180deg, rgb(9 11 10 / 15%), transparent 36%);
+  position: absolute;
+  inset: 0 0 22px;  
+   
 }
 .visual-index {
   position: absolute;
@@ -850,7 +847,7 @@ p {
   gap: 10px;
 }
 .trainer-details h3 {
-  margin: 0 0 3px;
+  margin: 0;
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
@@ -872,7 +869,7 @@ p {
 .pricing {
   border: 3px solid var(--lime);
   padding: 20px  0 30px;
-  margin: 30px;
+  margin:30px;
   background: radial-gradient(ellipse at 51% 35%, #171c14 0, #0b0d0c 54%);
 }
 .pricing-heading {
@@ -2124,17 +2121,7 @@ html[dir="rtl"] .cta-side-label {
   letter-spacing: 0;
 }
 
-html[dir="rtl"] .hero-photo-shade {
-  background:
-    linear-gradient(
-      270deg,
-      #10130f 0%,
-      rgb(16 19 15 / 40%) 26%,
-      transparent 62%
-    ),
-    linear-gradient(0deg, #10130f 1%, transparent 55%),
-    linear-gradient(180deg, rgb(9 11 10 / 15%), transparent 36%);
-}
+
 html[dir="rtl"] .cta-overlay {
   background:
     linear-gradient(
