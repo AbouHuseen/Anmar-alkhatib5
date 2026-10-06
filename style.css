@@ -870,6 +870,9 @@ p {
 
 /* Membership plans */
 .pricing {
+  border: 3px solid var(--lime);
+  padding: 20px  0 30px;
+  margin: 30px;
   background: radial-gradient(ellipse at 51% 35%, #171c14 0, #0b0d0c 54%);
 }
 .pricing-heading {
@@ -904,8 +907,8 @@ p {
   background: rgb(16 19 17 / 78%);
 }
 .price-featured {
-  border-color: var(--lime);
-  background: linear-gradient(150deg, rgb(197 250 68 / 9%), #111410 45%);
+  
+  
   box-shadow: 0 15px 55px rgb(0 0 0 / 18%);
 }
 .popular-tag {
