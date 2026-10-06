@@ -344,7 +344,7 @@ p {
   filter: saturate(0.72) brightness(0.76);
 }
 .hero-photo-shade {
-  position: absolute;
+
   inset: 0 0 22px;
   background:
     linear-gradient(
