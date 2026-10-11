@@ -227,6 +227,7 @@ a {
 }
 
 .hero-grid {
+  max-width: 1020px;
   position: relative;
   min-height: 492px;
   display: grid;
@@ -286,6 +287,15 @@ p {
   letter-spacing: 0;
   line-height: 1.12;
   text-transform: none;
+}
+#hero-title {
+    margin-bottom: 21px;
+    font-family: var(--font-display);
+    font-size: clamp(56px, 7.3vw, 80px);
+    font-weight: 800;
+    letter-spacing: 0px;
+    line-height: 1.12;
+    text-transform: none;
 }
 .hero h1 span,
 .about h2 span,
@@ -368,7 +378,7 @@ p {
 .member-card {
   position: absolute;
   right: -21px;
-  bottom: 54px;
+  bottom: -28px;
   width: 224px;
   padding: 20px 20px 15px;
   background: var(--lime);
