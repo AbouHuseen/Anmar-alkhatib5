@@ -221,9 +221,18 @@ a {
   padding-top: 148px;
   padding-bottom: 30px;
   overflow: hidden;
-  
-
- 
+  /* صورة المدرب بعرض القسم كاملاً بلا حواف أو إطار */
+  background:
+    /* طبقة داكنة خلف النص لضمان وضوح القراءة */
+    linear-gradient(to left, rgb(9 11 10 / 88%) 30%, rgb(9 11 10 / 55%) 52%, rgb(9 11 10 / 0%) 68%),
+    /* توهج بلون الهوية خلف المدرب لربط الصورة بتصميم الموقع */
+    radial-gradient(48% 62% at 22% 85%, rgb(197 250 68 / 15%), rgb(197 250 68 / 0%) 72%),
+    /* اندماج كامل للحواف: أعلى وأسفل ويسار */
+    linear-gradient(to top, var(--ink) 0%, rgb(9 11 10 / 85%) 6%, rgb(9 11 10 / 40%) 16%, rgb(9 11 10 / 0%) 38%),
+    linear-gradient(to bottom, var(--ink) 0%, rgb(9 11 10 / 60%) 5%, rgb(9 11 10 / 0%) 22%),
+    linear-gradient(to right, var(--ink) 0%, rgb(9 11 10 / 50%) 4%, rgb(9 11 10 / 0%) 24%),
+    url("./img/anmar-hero.png") left bottom / auto 94% no-repeat,
+    var(--ink);
 }
 
 .hero-grid {
@@ -235,12 +244,6 @@ a {
   align-items: center;
   gap: clamp(30px, 7vw, 104px);
   padding: clamp(18px, 2.3vw, 28px) clamp(18px, 2.5vw, 32px);
-
-  background-origin: content-box;
-  background:
-    linear-gradient(100deg, rgba(9, 11, 10, 0) 0%, rgba(9, 11, 10, 0) 34%, rgb(9 11 10 / 20%) 100%),
-    url("./img/ANMAR\ WEBSITE\ 01.png") center center / contain no-repeat;
-
 }
 
 .hero-copy {
@@ -337,7 +340,7 @@ p {
   min-height: 490px;
   align-self: stretch;
   overflow: visible;
-  animation: rise-in 0.9s 0.12s var() both;
+  animation: rise-in 0.9s 0.12s var(--ease-out) both;
 }
 .hero-photo {
   position: absolute;
@@ -1076,25 +1079,40 @@ p {
   align-items: center;
   gap: 31px;
 }
+/* حلقة SVG: تعمل بشكل متسق على كل المتصفحات (بدون conic-gradient) */
 .progress-ring {
+  position: relative;
   width: 155px;
-  aspect-ratio: 1;
+  height: 155px;
+  flex: 0 0 auto;
+}
+.ring-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: rotate(-90deg);
+}
+.ring-svg circle {
+  fill: none;
+  stroke-width: 11;
+}
+.ring-track {
+  stroke: #30372c;
+}
+.ring-fill {
+  stroke: var(--lime);
+  stroke-linecap: round;
+  stroke-dasharray: 326.73;
+  stroke-dashoffset: 326.73;
+  transition: stroke-dashoffset 1.25s var(--ease-out);
+}
+.ring-center {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  background: conic-gradient(var(--lime) var(--ring-value, 0%), #30372c 0);
-  transition: background 1.25s var(--ease-out);
 }
-.progress-ring::before {
-  position: absolute;
-  width: 131px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #121512;
-  content: "";
-}
-.progress-ring > div {
-  position: relative;
+.ring-center > div {
   display: grid;
   justify-items: center;
 }
@@ -1108,7 +1126,7 @@ p {
   color: var(--lime);
   font-size: 18px;
 }
-.progress-ring > div > span {
+.ring-center > div > span {
   margin-top: 5px;
   color: var(--muted);
   font-size: 7px;
@@ -1656,9 +1674,7 @@ p {
   }
   .progress-ring {
     width: 130px;
-  }
-  .progress-ring::before {
-    width: 110px;
+    height: 130px;
   }
   .stat-row {
     grid-template-columns: 22px minmax(105px, 1fr);
@@ -1766,6 +1782,12 @@ p {
     min-height: 0;
     grid-template-columns: 1fr;
     gap: 28px;
+    background:
+      /* وضوح النص فوق الصورة على الشاشات الصغيرة */
+      linear-gradient(to top, var(--ink) 0%, rgb(9 11 10 / 55%) 26%, rgb(9 11 10 / 30%) 60%),
+      radial-gradient(70% 55% at 50% 100%, rgb(197 250 68 / 12%), rgb(197 250 68 / 0%) 72%),
+      url("./img/anmar-hero.png") center bottom / auto 74% no-repeat,
+      var(--ink);
   }
   .hero-copy {
     padding-block: 0;
@@ -1969,9 +1991,7 @@ p {
   }
   .progress-ring {
     width: 115px;
-  }
-  .progress-ring::before {
-    width: 97px;
+    height: 115px;
   }
   .progress-ring strong {
     font-size: 33px;

@@ -72,7 +72,14 @@ const progressRing = document.querySelector(".progress-ring");
 const progressObserver = new IntersectionObserver((entries, observer) => {
   if (!entries.some((entry) => entry.isIntersecting)) return;
   progressPanel.classList.add("is-visible");
-  progressRing.style.setProperty("--ring-value", `${progressRing.dataset.progress}%`);
+  const ringFill = progressRing.querySelector(".ring-fill");
+  if (ringFill) {
+    const radius = Number(ringFill.getAttribute("r")) || 52;
+    const circumference = 2 * Math.PI * radius;
+    const progress = Math.min(Math.max(Number(progressRing.dataset.progress) || 0, 0), 100);
+    ringFill.style.strokeDasharray = String(circumference);
+    ringFill.style.strokeDashoffset = String(circumference * (1 - progress / 100));
+  }
   progressPanel.querySelectorAll(".stat-track span").forEach((bar) => {
     bar.style.setProperty("--bar-width", bar.dataset.width);
   });
