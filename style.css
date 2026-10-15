@@ -380,8 +380,8 @@ p {
 }
 .member-card {
   position: absolute;
-  left: -21px;
-  top: 60px;
+  right: -21px;
+  bottom: -28px;
   width: 224px;
   padding: 20px 20px 15px;
   background: var(--lime);
@@ -1827,8 +1827,8 @@ p {
       linear-gradient(90deg, rgb(9 11 10 / 30%), transparent 70%);
   }
   .member-card {
-    left: -8px;
-    top: 47px;
+    right: -8px;
+    bottom: 47px;
     width: 192px;
     padding: 15px;
   }
